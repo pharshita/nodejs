@@ -1,0 +1,49 @@
+[{
+    "id": 1,
+    "title": "perfume Oil",
+    "description": "Mega Discount, Impression of A...",
+    "price": 13,
+    "discountPercentage": 8.4,
+    "rating": 4.26,
+    "stock": 65,
+    "brand": "Impression of Acqua Di Gio",
+    "category": "fragrances",
+    "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+  },
+  {
+    "id": 2,
+    "title": "perfume Oil",
+    "description": "Mega Discount, Impression of A...",
+    "price": 13,
+    "discountPercentage": 8.4,
+    "rating": 4.26,
+    "stock": 65,
+    "brand": "Impression of Acqua Di Gio",
+    "category": "fragrances",
+    "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+  },
+  {
+    "id": 3,
+    "title": "perfume Oil",
+    "description": "Mega Discount, Impression of A...",
+    "price": 13,
+    "discountPercentage": 8.4,
+    "rating": 4.26,
+    "stock": 65,
+    "brand": "Impression of Acqua Di Gio",
+    "category": "fragrances",
+    "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg"
+  },
+
+  {
+    "id": 4,
+    "title": "perfume Oil",
+    "description": "Mega Discount, Impression of A...",
+    "price": 13,
+    "discountPercentage": 8.4,
+    "rating": 4.26,
+    "stock": 65,
+    "brand": "Impression of Acqua Di Gio",
+    "category": "fragrances",
+    "thumbnail": "https://i.dummyjson.com/data/products/11/thumbnail.jpg"
+  }]
