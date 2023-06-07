@@ -29,7 +29,7 @@ export default function MainApi() {
     }, [])
     const handleclick = (name, email,phone) => {
       let userData = {
-        "id": Math.floor(Math.random() * 100),
+        // "id": Math.floor(Math.random() * 100),
         "name": name,
         "email": email,
         "phone": phone

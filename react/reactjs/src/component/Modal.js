@@ -21,7 +21,7 @@ export default function Modal(props) {
             "email": email,
             "phone": phone
         }
-        axios.patch(`http://127.0.0.1:5000/api/data/${props.id}`, userData).then((res) => {
+        axios.put(`http://127.0.0.1:5000/api/data/${props.id}`, userData).then((res) => {
             props.getapi()
         })
     }

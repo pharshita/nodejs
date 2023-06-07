@@ -14,7 +14,7 @@ export default function NewTable(props) {
         })
     }
     const updatedata = (e) => {
-        setId(e.id)
+        setId(e._id)
         setName(e.name)
         setEmail(e.email)
         setPhone(e.phone)
@@ -43,7 +43,7 @@ export default function NewTable(props) {
                                                 <td>{item.name}</td>
                                                 <td>{item.email}</td>
                                                 <td>{item.phone}</td>
-                                                <td><button onClick={() => deletedata(item.id)}>delete</button>
+                                                <td><button onClick={() => deletedata(item._id)}>delete</button>
                                                     <button onClick={() => updatedata(item)} data-bs-toggle="modal" data-bs-target="#staticBackdrop">update</button></td>
                                             </tr>
                                         </>
