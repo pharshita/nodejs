@@ -9,12 +9,10 @@ export default function MainApi() {
     // useEffect(() => {
     //   axios.get("http://127.0.0.1:5000/duummyData")
     //     .then((res) => {
-    //       debugger
     //     })
   
     //   axios.get("http://127.0.0.1:5000/create")
     //     .then((res) => {
-    //       debugger
     //     })
     // }, [])
     var getapi = () => {
@@ -27,12 +25,15 @@ export default function MainApi() {
     useEffect(() => {
       getapi()
     }, [])
-    const handleclick = (name, email,phone) => {
+    const handleclick = (name, email,age,phone,gender,checkboxValue) => {
       let userData = {
         // "id": Math.floor(Math.random() * 100),
         "name": name,
         "email": email,
-        "phone": phone
+        "age":age,
+        "phone": phone,
+        "gender":gender,
+        "checkbox":checkboxValue,
       }
       axios.post("http://127.0.0.1:5000/api/data", userData).then((res) => {
         getapi()

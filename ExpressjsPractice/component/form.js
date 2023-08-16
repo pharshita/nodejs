@@ -8,6 +8,7 @@ app.use(bodyParser.json())
 app.use(cors());
 
 app.get('/formdata',function(req,res){
+    console.log("get formdata")
     res.send(newarr)
 })
 

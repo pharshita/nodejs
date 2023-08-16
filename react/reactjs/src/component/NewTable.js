@@ -8,6 +8,9 @@ export default function NewTable(props) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
+    const [age, setAge] = useState("")
+    const [gender, setGender] = useState("")
+    const [checkbox, setCheckbox] = useState([])
     const deletedata = (e) => {
         axios.delete(`http://127.0.0.1:5000/api/data/${e}`,).then((res) => {
             props.getapi()
@@ -18,18 +21,24 @@ export default function NewTable(props) {
         setName(e.name)
         setEmail(e.email)
         setPhone(e.phone)
+        setAge(e.age)
+        setGender(e.gender)
+        setCheckbox(e.checkbox)
     }
     return (
         <div>
             {
-               props.data.length!==0
+                props.data.length !== 0
                     ? <Table striped bordered hover>
                         <thead>
                             <tr>
-                                <th>sr</th>
+                                <th>SNO.</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Age</th>
                                 <th>Phone</th>
+                                <th>Gender</th>
+                                <th>Hobbies</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -42,7 +51,18 @@ export default function NewTable(props) {
                                                 <td>{index + 1}</td>
                                                 <td>{item.name}</td>
                                                 <td>{item.email}</td>
+                                                <td>{item.age}</td>
                                                 <td>{item.phone}</td>
+                                                <td>{item.gender}</td>
+                                                <td>
+                                                    {
+                                                        item.checkbox.map((hobby, i) => {
+                                                            return (
+                                                                <li>{hobby}</li>
+                                                            )
+                                                        })
+                                                    }
+                                                </td>
                                                 <td><button onClick={() => deletedata(item._id)}>delete</button>
                                                     <button onClick={() => updatedata(item)} data-bs-toggle="modal" data-bs-target="#staticBackdrop">update</button></td>
                                             </tr>
@@ -54,7 +74,7 @@ export default function NewTable(props) {
                     </Table>
                     : null
             }
-                <Modal id={id} newname={name} newemail={email} newphone={phone} getapi={props.getapi} />
+            <Modal id={id} newname={name} newemail={email} newphone={phone} newgender={gender} newcheckbox={checkbox} newage={age} getapi={props.getapi} />
         </div>
     )
 }

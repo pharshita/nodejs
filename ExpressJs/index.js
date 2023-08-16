@@ -125,7 +125,7 @@ let books = [{
 
 
 app.get('/', function (req, res) {
-    res.status(200).send("hello world")
+    res.status(200).send("<h1>hello world</h1>")
 })
 
 app.get('/new', function (req, res) {
@@ -171,4 +171,4 @@ app.post('/api/data', (req, res) => {
     res.send('Data received');
   });
 
-app.listen(6000, "127.0.0.1")
+app.listen(8000, "127.0.0.1")
