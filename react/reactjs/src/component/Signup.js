@@ -1,7 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 const Signup = () => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search).get('usedata');
+  // const userData = searchParams.get('usedata');
+
+  debugger
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     username: '',
@@ -22,7 +28,7 @@ const Signup = () => {
     e.preventDefault();
     axios.post("http://127.0.0.1:5000/signup", formData).then((res) => {
       alert(res.data)
-      navigate("/")
+      navigate("/mainpage")
     }).catch((err) => {
       console.log(err)
     })
@@ -50,6 +56,7 @@ const Signup = () => {
           />
         </div>
         <button type="submit">Sign Up</button>
+        <p>Already Have a Account <Link to="/"><span>SignIn</span></Link></p>
       </form>
     </div>
   );

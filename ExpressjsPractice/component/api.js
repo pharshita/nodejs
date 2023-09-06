@@ -43,7 +43,7 @@ app.use(cors());
 app.get('/api/data', async (req, res) => {
     try {
         // const result = await list.find({},{"name":1,_id:0}).sort({name:-1}).limit(3).skip(2)
-        const result = await list.find()
+        const result = await list.find().sort({ _id: -1 })
         res.json(result);
     } catch (err) {
         console.log(err)
@@ -52,7 +52,6 @@ app.get('/api/data', async (req, res) => {
 //......................................getdata api in 2 types done....................................................
 //......................................postdata....................................................
 app.post("/api/data", async (req, res) => {
-    console.log(req.body)
     const { name, email, age, phone ,gender,checkbox} = req.body;
     // arr.push(req.body)
     const post = new list({ name, email, age, phone ,gender,checkbox});

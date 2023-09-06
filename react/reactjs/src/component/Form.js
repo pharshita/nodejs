@@ -61,7 +61,7 @@ function Form(props) {
                 <input type='checkbox' name='checkbox' value="dancing" checked={hobbies.includes('dancing')} onChange={handleCheckboxChange}/>dancing
                 <input type='checkbox' name='checkbox' value="reading" checked={hobbies.includes('reading')}  onChange={handleCheckboxChange}/>reading
                 <button onClick={submit}>submit</button>
-                <button onClick={()=> navigate("/signin")}>Logout</button>
+                <button onClick={()=> navigate("/")}>Logout</button>
             </form>
         </div>
     )
