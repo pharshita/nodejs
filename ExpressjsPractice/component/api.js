@@ -11,7 +11,7 @@ mongoose.connect("mongodb://localhost:27017/basicdata", { useNewUrlParser: true,
 
 const db = mongoose.connection;
 const NewSchema = new mongoose.Schema({
-    id: Number,
+    customId: Number, 
     name: String,
     email: String,
     age: Number,
@@ -24,6 +24,12 @@ let arr = []
 
 app.use(bodyParser.json())
 app.use(cors());
+
+let nextId = 1;
+
+function generateNextId() {
+    return nextId++;
+}
 
 //......................................getdata....................................................
 // app.get('/api/data', (req, res) => {
@@ -53,8 +59,9 @@ app.get('/api/data', async (req, res) => {
 //......................................postdata....................................................
 app.post("/api/data", async (req, res) => {
     const { name, email, age, phone ,gender,checkbox} = req.body;
-    // arr.push(req.body)
-    const post = new list({ name, email, age, phone ,gender,checkbox});
+    const customId = generateNextId();
+    const post = new list({customId, name, email, age, phone ,gender,checkbox});
+    // post._id = customId;
     post.save()
     res.send("form submited")
 })

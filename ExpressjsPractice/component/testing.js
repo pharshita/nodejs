@@ -14,7 +14,7 @@ const db = mongoose.connection;
 const counterSchema = new mongoose.Schema({
     _id: String,
     seq: Number
-});
+}, { versionKey: false });
 
 const Counter = mongoose.model('Counter', counterSchema);
 
@@ -51,14 +51,45 @@ app.post('/api/companydata', async (req, res) => {
         customId: customId,
         name: name
     });
-    console.log(newCompany)
     try {
         const result = await newCompany.save();
         res.json(result);
     } catch (error) {
-        console.error(error);
         res.status(500).json({ error: 'Internal server error' });
     }
 })
+
+app.delete('/api/companydata/:customId', (req, res) => {
+    const { customId } = req.params;
+
+    Company.findOneAndDelete({ customId: customId })
+        .then((deletedData) => {
+            if (!deletedData) {
+                res.status(404).json({ error: 'Data not found' });
+            } else {
+                res.status(200).json({ message: 'Data deleted successfully' });
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).json({ error: 'Internal server error' });
+        });
+});
+
+app.put('/api/companydata/:customId', (req, res) => {
+    const { customId } = req.params;
+    const { name } = req.body;
+    Company.findOneAndUpdate({ customId: customId }, { name }, { new: true })
+        .then((updatedData) => {
+            if (!updatedData) {
+                return res.status(404).json({ error: 'Data not found' });
+            }
+            res.json(updatedData);
+        })
+        .catch((error) => {
+            res.status(500).json({ error: 'Error updating data' });
+        });
+});
+
 
 module.exports = app;

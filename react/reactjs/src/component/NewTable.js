@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import Table from 'react-bootstrap/Table';
 import Modal from './Modal';
+import swal from '@sweetalert/with-react'
+
 
 export default function NewTable(props) {
     const [id, setId] = useState("")
@@ -12,9 +14,27 @@ export default function NewTable(props) {
     const [gender, setGender] = useState("")
     const [checkbox, setCheckbox] = useState([])
     const deletedata = (e) => {
-        axios.delete(`http://127.0.0.1:5000/api/data/${e}`,).then((res) => {
-            props.getapi()
-        })
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+            .then((willDelete) => {
+              if (willDelete) {
+                axios.delete(`http://127.0.0.1:5000/api/data/${e}`,).then((res) => {
+                    swal({
+                        text: "Document removed successfully!",
+                        icon: "success",
+                        buttons: false,
+                        timer: 2000,
+                      });
+                    props.getapi()
+
+                })
+              }
+            });
     }
     const updatedata = (e) => {
         setId(e._id)

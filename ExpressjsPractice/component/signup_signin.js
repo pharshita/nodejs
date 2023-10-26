@@ -19,6 +19,22 @@ const loginSchema = new mongoose.Schema({
 })
 const login_logout = new mongoose.model("login_logout", loginSchema)
 
+
+const transporter = nodemailer.createTransport({
+    auth: {
+        user: 'harshitahppatidar@gmail.com',
+        pass: 'oudn mgpn abnd hgol',
+    },
+    secure: true, 
+  });
+
+const otpSchema = new mongoose.Schema({
+    email: String,
+    code: Number,
+    expireIn: Date,
+  });
+  const Otp = mongoose.model("Otp", otpSchema);
+
 app.use(bodyParser.json())
 app.use(cors());
 
@@ -58,30 +74,70 @@ app.post("/signin", async (req, res) => {
         res.status(400).send("Error during signin");
     }
 });
+// app.post("/forgot-password", async (req, res) => {
+//     try {
+//         const { email, password } = req.body;
+//         const user = await login_logout.findOne({ email });
+//         if (email !== "" && password == "") {
+//             if (!user) {
+//                 return res.status(404).send("User not found");
+//             }
+//             // const otp =  Math.floor(100000 + Math.random() * 900000).toString();
+//             // const otpExpiry = new Date(Date.now() + 600000); // OTP expires in 10 minutes
+
+
+//             res.status(200).send("ok");
+//         }
+//         else if (email !== "" && password !== "") {
+//             const hashedPassword = await bcrypt.hash(password, 10);
+//             user.password = hashedPassword
+//             await user.save();
+//             res.status(200).send("Password updated successfully");
+//         }
+
+//     } catch (error) {
+//         console.error("Error:", error);
+//     }
+
+// })
+
 app.post("/forgot-password", async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const user = await login_logout.findOne({ email });
-        if (email !== "" && password == "") {
-            if (!user) {
-                return res.status(404).send("User not found");
-            }
-            // const otp =  Math.floor(100000 + Math.random() * 900000).toString();
-            // const otpExpiry = new Date(Date.now() + 600000); // OTP expires in 10 minutes
-           
-
-            res.status(200).send("ok");
+        const { email, otp } = req.body;
+        // Check if OTP is valid and not expired
+        const otpData = await Otp.findOne({ email, code: otp, expireIn: { $gt: new Date() } });
+        if (!otpData) {
+            return res.status(401).send("Invalid or expired OTP");
         }
-        else if (email !== "" && password !== "") {
-            const hashedPassword = await bcrypt.hash(password, 10);
-            user.password = hashedPassword
-            await user.save();
-            res.status(200).send("Password updated successfully");
-        }
-
+        // OTP is valid, allow the user to reset the password
+        res.status(200).send("OTP verified successfully");
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Error during OTP verification:", error);
+        res.status(500).send("Internal Server Error");
     }
+    // try {
+    //     const { email, password } = req.body;
+    //     const user = await login_logout.findOne({ email });
+    //     if (email !== "" && password == "") {
+    //         if (!user) {
+    //             return res.status(404).send("User not found");
+    //         }
+    //         // const otp =  Math.floor(100000 + Math.random() * 900000).toString();
+    //         // const otpExpiry = new Date(Date.now() + 600000); // OTP expires in 10 minutes
+
+
+    //         res.status(200).send("ok");
+    //     }
+    //     else if (email !== "" && password !== "") {
+    //         const hashedPassword = await bcrypt.hash(password, 10);
+    //         user.password = hashedPassword
+    //         await user.save();
+    //         res.status(200).send("Password updated successfully");
+    //     }
+
+    // } catch (error) {
+    //     console.error("Error:", error);
+    // }
 
 })
 

@@ -21,7 +21,6 @@ export default function MainApi() {
     })
   }
 
-  console.log(data)
   useEffect(() => {
     getapi()
   }, [])
