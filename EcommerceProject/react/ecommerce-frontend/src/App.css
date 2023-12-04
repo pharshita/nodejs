@@ -10,6 +10,14 @@ a {
   color: white;
   text-decoration: none;
 }
+body{
+  background-color: white;
+  overflow: hidden;
+}
+html{
+  overflow: overlay;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
