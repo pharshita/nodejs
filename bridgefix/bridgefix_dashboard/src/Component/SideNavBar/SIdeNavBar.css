@@ -1,0 +1,57 @@
+.side-nav {
+    width: 15%;
+    height: 100%;
+    background-color: #fff;
+    color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+}
+
+.side-nav p {
+    color: #32325d;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 13px;
+    padding-top: 10px;
+}
+
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+    color: #00000080;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 0px 10px
+}
+
+.side-nav ul li {
+    margin-bottom: 10px;
+}
+
+.side-nav ul li a {
+    text-decoration: none;
+}
+
+/* 
+
+.side-nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.side-nav ul li a:hover {
+    background-color: #555;
+} */
+
+.textStyle div:nth-child(1) {
+    text-align: end;
+}
+
+.textStyle div:nth-child(2) {
+    color: #00000080;
+    text-align: left;
+}

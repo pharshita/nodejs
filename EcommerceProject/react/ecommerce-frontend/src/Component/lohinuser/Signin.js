@@ -33,7 +33,9 @@ export default function Signin() {
                 console.log(error)
             })
     }
-
+const forgotpassHandle = ()=>{
+    debugger
+}
     return (
         <div className='bg'>
             <div className="main">
@@ -43,6 +45,7 @@ export default function Signin() {
                     <input className='userinput' type="email" placeholder="Email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} />
                     <input className='userinput' type="password" placeholder="Password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} />
                     <button className="userbtn" onClick={loginHandle}>Login</button>
+                    <p style={{color:"white",cursor:"pointer"}} onClick={()=>forgotpassHandle()}>Forgot Password</p>
                 </div>
                 <div className="signup">
                     <label className='userlable' htmlFor="chk" aria-hidden="true">Sign up</label>

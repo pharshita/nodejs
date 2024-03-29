@@ -20,6 +20,7 @@ export default function AddToCart() {
     }, [])
 
     const getCartApi = () => {
+        debugger
         axios.get(`http://localhost:5000/cart`)
             .then((res) => {
                 setCarts(res.data)

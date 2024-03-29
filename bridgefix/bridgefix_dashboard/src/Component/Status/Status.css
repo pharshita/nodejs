@@ -1,0 +1,28 @@
+.statusStyle{
+    padding: 20px;
+    background-color: #007bff;
+}
+.tss-hj53wm-MUIDataTableToolbar-titleText {
+    text-align: left;
+    font-size: 30px;
+}
+.employeeStyle{
+    background-color: #fcfcfc;
+}
+.custom-table th span button{
+    font-size: 12px;
+}
+
+.custom-table td{
+    font-size: 12px;
+}
+.custom-table th {
+    background-color: #e9ecef; 
+    padding: 5px 16px
+}
+.statusEmplyeeStyle .custom-table thead tr th:nth-child(1) {
+    display: none !important; 
+}
+.statusEmplyeeStyle .custom-table tbody tr td:nth-child(1) {
+    display: none !important; 
+}

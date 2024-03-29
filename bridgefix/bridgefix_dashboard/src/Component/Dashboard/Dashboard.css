@@ -1,0 +1,60 @@
+.dashboardStyle {
+    padding: 40px;
+    background-color: #007bff;
+}
+
+.dashboardcardStyle .cardStyle {
+    text-align: left;
+    background: white;
+    padding: 10px;
+    width: 23%;
+    margin-right: 20px;
+}
+
+.dashboardcardStyle .CardStyle1 {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    margin-top: 30px;
+    margin-right: 24px;
+    min-height: 300px;
+}
+
+.dashboardcardStyle .CardStyle1 div:nth-child(1) {
+    background: white;
+    width: 70%;
+    margin-right: 20px;
+    padding: "20px";
+}
+
+.dashboardcardStyle .CardStyle1 div:nth-child(2) {
+    background: white;
+    padding: "20px";
+    width: 30%;
+    margin-right: 20px;
+}
+
+.dashboardcardStyle .cardStyle .headIcon {
+    display: flex;
+    justify-content: space-between
+}
+
+.dashboardcardStyle .cardStyle .headIcon h5 {
+    color: #6c757d;
+    text-transform: uppercase;
+}
+
+.dashboardcardStyle .cardStyle .headIcon .icon {
+    padding: 8px 10px;
+    border-radius: 50%;
+    color: white
+}
+
+.dashboardcardStyle .cardStyle p {
+    color: #28a745
+}
+
+.dashboardcardStyle .cardStyle p span {
+    color: #6c757d
+}

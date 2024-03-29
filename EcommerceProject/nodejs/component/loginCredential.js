@@ -1,6 +1,21 @@
 const signup_signin = require('../models/loginmodel')
 const bcrypt = require('bcrypt');
+// const nodemailer = require('nodemailer');
+// const crypto = require('crypto');
 
+// function generateResetToken() {
+//     return crypto.randomBytes(20).toString('hex');
+// }
+
+
+// const transporter = nodemailer.createTransport({
+//     // Configure your email service here (SMTP or other email service)
+//     service: 'gmail',
+//     auth: {
+//         user: 'your_email@gmail.com',
+//         pass: 'your_email_password',
+//     },
+// });
 
 module.exports = {
     UserList: async (req, res) => {
@@ -51,5 +66,8 @@ module.exports = {
         } catch (error) {
             res.status(500).json("internal server error");
         }
+    },
+    forgotPassword:async(req,res)=>{
+        res.send("i am sending mail")
     }
 }

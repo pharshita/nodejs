@@ -1,0 +1,25 @@
+.payrollStyle{
+    padding: 20px;
+    background-color: #007bff;
+}
+.cardStyle{
+    background-color: #192d4e;
+    width: auto;
+    border-radius: 10px;
+    padding:30px;
+}
+.cardcontaint div{
+    background-color: white;
+    padding: 20px 0px;
+    width: 21%;
+    margin-top: 30px;
+    border-radius: 5px;
+    text-align: center;
+}
+.cardcontaint{
+    display: flex;
+    justify-content: space-between;
+}
+.cardcontaint button{
+    width: 100%;
+}

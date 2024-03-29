@@ -1,0 +1,14 @@
+.EmplyeeStyle {
+    padding: 20px;
+    background-color: #007bff;
+}
+
+.tableStyle {
+    margin-top: 20px;
+    background-color: #172b4d;
+    color: white;
+}
+
+.tableStyle th,td {
+    font-size: 12px;
+}
